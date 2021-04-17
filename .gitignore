@@ -4,6 +4,6 @@ build/
 target/
 .idea/
 .allure/
-.allure-results/
+allure-results/
 logs/
 temp/
