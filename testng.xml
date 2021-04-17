@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG" verbose="1">
+
+    <test name="TestNG">
+        <classes>
+            <class name="by.zeon.CartTest"/>
+        </classes>
+    </test>
+</suite>
