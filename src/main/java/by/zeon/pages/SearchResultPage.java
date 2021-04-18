@@ -1,5 +1,6 @@
 package by.zeon.pages;
 
+import by.zeon.loggers.Log;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -9,18 +10,21 @@ public class SearchResultPage extends BasePage {
     private static final By PRODUCT_PRICE_LOCATOR = By.xpath("//div[@class='pr-card-price-block']/div[@class='pr-card-price']");
     private static final By ADD_TO_CART_BUTTON = By.xpath("//a[@id='but_car_main']");
 
-    public String getProductPrice() {
-        String price = $(PRODUCT_PRICE_LOCATOR).getText();
-        return price;
-    }
-
     public String getProductName() {
         String name = $(PRODUCT_TITLE_LOCATOR).getText();
+        Log.info(String.format("Text from product name: '%s'.", name));
         return name;
+    }
+
+    public String getProductPrice() {
+        String price = $(PRODUCT_PRICE_LOCATOR).getText();
+        Log.info(String.format("Text from product price: '%s'.", price));
+        return price;
     }
 
     public SearchResultPage clickAddToCartButton() {
         $(ADD_TO_CART_BUTTON).click();
+        Log.info("Click cart button.");
         return this;
     }
 }

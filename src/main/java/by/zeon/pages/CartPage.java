@@ -1,21 +1,28 @@
 package by.zeon.pages;
 
+import by.zeon.loggers.Log;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class CartPage extends BasePage {
-    private static final String PRODUCT_NAME_PATH = "//div[@class='cart-items']//div[@class='cart-item flex valign-center']//div[@class='cart-item-product-title']/a[contains(text(),'%s')]";
-    private static final String PRODUCT_PRICE_PATH = "//div[@class='cart-items']//div[@class='cart-item flex valign-center']//div[@class='cart-item-product-title']/a[contains(text(),'%s')]/ancestor::div[@class='cart-item flex valign-center']//div[@class='cart-item-price']";
+    private static final String PRODUCT_NAME_PATH = "//div[@class='cart-items']" +
+            "//div[@class='cart-item flex valign-center']" +
+            "//div[@class='cart-item-product-title']/a[contains(text(),'%s')]";
+    private static final String PRODUCT_PRICE_PATH = "//div[@class='cart-items']" +
+            "//div[@class='cart-item flex valign-center']//div[@class='cart-item-product-title']" +
+            "/a[contains(text(),'%s')]/ancestor::div[@class='cart-item flex valign-center']" +
+            "//div[@class='cart-item-price']";
 
     public String getProductName(String name) {
         String resultName = $(By.xpath(String.format(PRODUCT_NAME_PATH, name))).getText();
+        Log.info(String.format("Text from product name: '%s'.", resultName));
         return resultName;
     }
 
     public String getProductPrice(String name) {
         String resultPrice = $(By.xpath(String.format(PRODUCT_PRICE_PATH, name))).getText();
-
+        Log.info(String.format("Text from product price: '%s'.", resultPrice));
         return resultPrice;
     }
 }

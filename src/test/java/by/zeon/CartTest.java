@@ -1,12 +1,15 @@
 package by.zeon;
 
 
+import by.zeon.listeners.TestListener;
 import by.zeon.pages.CartPage;
 import by.zeon.pages.HomePage;
 import by.zeon.pages.SearchResultPage;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({TestListener.class})
 public class CartTest {
 
     @Test
