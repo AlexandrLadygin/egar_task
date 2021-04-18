@@ -5,9 +5,9 @@ import by.zeon.listeners.TestListener;
 import by.zeon.pages.CartPage;
 import by.zeon.pages.HomePage;
 import by.zeon.pages.SearchResultPage;
-import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 @Listeners({TestListener.class})
 public class CartTest {
@@ -26,7 +26,9 @@ public class CartTest {
         String resultName = cartPage.getProductName(productName);
         String resultPrice = cartPage.getProductPrice(productName);
 
-        Assert.assertEquals(name, resultName, "The names aren't equals!");
-        Assert.assertEquals(price, resultPrice, "The prices aren't equals!");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(name, resultName, "The names aren't equals!");
+        softAssert.assertEquals(price, resultPrice, "The prices aren't equals!");
+        softAssert.assertAll();
     }
 }
