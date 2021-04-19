@@ -1,6 +1,6 @@
 package by.zeon.pages;
 
-import by.zeon.loggers.Log;
+import by.zeon.loggers.AllureLogger;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -18,20 +18,20 @@ public class CartPage extends BasePage {
 
     public String getProductName(String name) {
         String resultName = $(By.xpath(String.format(PRODUCT_NAME_PATH, name))).getText();
-        Log.info(String.format("Text from product name: '%s'.", resultName));
+        AllureLogger.logInfo(String.format("Text from product name: '%s'.", resultName));
         return resultName;
     }
 
     public String getProductPrice(String name) {
         String resultPrice = $(By.xpath(String.format(PRODUCT_PRICE_PATH, name))).getText();
-        Log.info(String.format("Text from product price: '%s'.", resultPrice));
+        AllureLogger.logInfo(String.format("Text from product price: '%s'.", resultPrice));
         return resultPrice;
     }
 
     public CartPage openPage() {
         String cartPageUrl = String.format(BASE_URL.concat(CART_PAGE_URL));
         open(cartPageUrl);
-        Log.info(String.format("Open Cart Page: '%s'.", cartPageUrl));
+        AllureLogger.logInfo(String.format("Open Cart Page: '%s'.", cartPageUrl));
         return this;
     }
 }

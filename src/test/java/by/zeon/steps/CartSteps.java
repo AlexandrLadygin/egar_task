@@ -18,7 +18,6 @@ public class CartSteps {
         String searchText = testContext.getSearchText();
         String actualName = cartPage.getProductName(searchText);
         Assert.assertEquals(actualName, expectedName, "The names aren't equals!");
-
     }
 
     @And("The price of product should be {string}")

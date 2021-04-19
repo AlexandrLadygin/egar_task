@@ -1,6 +1,6 @@
 package by.zeon.pages;
 
-import by.zeon.loggers.Log;
+import by.zeon.loggers.AllureLogger;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -13,19 +13,19 @@ public class BasePage {
 
     public BasePage typeTextToSearchField(String textForSearch) {
         $(SEARCH_FIELD_LOCATOR).setValue(textForSearch);
-        Log.info(String.format("Type text '%s' into search field.", textForSearch));
+        AllureLogger.logInfo(String.format("Type text '%s' into search field.", textForSearch));
         return this;
     }
 
     public SearchResultPage clickSearchButton() {
         $(SEARCH_BUTTON_LOCATOR).click();
-        Log.info("Click search button.");
+        AllureLogger.logInfo("Click search button.");
         return new SearchResultPage();
     }
 
     public CartPage clickCartButton() {
         $(CART_BUTTON_LOCATOR).click();
-        Log.info("Click cart button.");
+        AllureLogger.logInfo("Click cart button.");
         return new CartPage();
     }
 }
