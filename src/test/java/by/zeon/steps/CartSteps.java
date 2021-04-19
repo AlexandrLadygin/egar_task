@@ -51,6 +51,6 @@ public class CartSteps {
     @And("The price of product should be {string}")
     public void verifyPrice(String expectedPrice) {
         String actualPrice = cartPage.getProductPrice(searchText);
-        Assert.assertEquals(actualPrice, expectedPrice, "The names aren't equals!");
+        Assert.assertEquals(actualPrice, expectedPrice, "The prices aren't equals!");
     }
 }
