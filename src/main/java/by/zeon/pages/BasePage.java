@@ -6,9 +6,9 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class BasePage {
     protected static final String BASE_URL = "https://www.777555.by/";
-    protected static final String CART_BUTTON_LOCATOR = ("//a[@class='h-cart']");
-    protected static final String SEARCH_FIELD_LOCATOR = ("//input[@name='q']");
-    protected static final String SEARCH_BUTTON_LOCATOR = ("//input[@class='button_search']");
+    protected static final String CART_BUTTON_LOCATOR = "//a[@class='h-cart']";
+    protected static final String SEARCH_FIELD_LOCATOR = "//input[@name='q']";
+    protected static final String SEARCH_BUTTON_LOCATOR = "//input[@class='button_search']";
 
     public BasePage typeTextToSearchField(String textForSearch) {
         $x(SEARCH_FIELD_LOCATOR).setValue(textForSearch);
