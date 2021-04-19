@@ -1,5 +1,5 @@
 Feature: Add product to cart
-
+  @smoke
   Scenario: User add product to cart and verify name and price
 
     Given I open Home Page
